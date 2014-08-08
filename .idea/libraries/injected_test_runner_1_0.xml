@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="injected-test-runner-1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jeskeshouse/injected-test-runner/1.0/bd0f42d69347ce312f7546e5fbe75fb309334ec7/injected-test-runner-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jeskeshouse/injected-test-runner/1.0/6f8e4eca1ec62f0e25532c2520fecafb6cf60a03/injected-test-runner-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
