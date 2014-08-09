@@ -12,7 +12,6 @@ WhatsApp makes a daily encrypted copy of you chat history and stores it on your 
 
 WhatsApp's encryption of their backups is known to be weak and easily broken. In fact, some guys did this in a [very public fashion](http://bas.bosschert.nl/steal-whatsapp-update/)
 
-The algorithm WhatsApp used to encrypt the copy of the databases is known to be broken([md5](http://en.wikipedia.org/wiki/MD5)) and shouldn't be used. To prove the point, [ created a decryptor for crypt5 databases.
 
 ###So, how does WADBCE help me?
 
