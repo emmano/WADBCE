@@ -5,3 +5,5 @@
 /build
 /.idea
 *.iml
+/app/local.properties
+/app/*.apk
