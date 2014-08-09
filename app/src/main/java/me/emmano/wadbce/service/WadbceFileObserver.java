@@ -22,19 +22,18 @@ public class WadbceFileObserver extends FileObserver {
 
     @Override
     public void onEvent(int flag, String s) {
-        if (databases.isDirectory() && flag == CREATE) {
-            String[] children = databases.list();
-            for (int j = 0; j < children.length; j++) {
-                new File(databases, children[j]).delete();
-            }
-        }
+        deleteDatabaseCopies();
     }
 
     private void deleteFilesInDirectory() {
+        deleteDatabaseCopies();
+    }
+
+    private void deleteDatabaseCopies() {
         if (databases.isDirectory()) {
             String[] children = databases.list();
-            for (int i = 0; i < children.length; i++) {
-                new File(databases, children[i]).delete();
+            for (int j = 0; j < children.length; j++) {
+                new File(databases, children[j]).delete();
             }
         }
     }
