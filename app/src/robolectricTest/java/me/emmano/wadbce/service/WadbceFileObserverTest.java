@@ -17,25 +17,30 @@ import static org.junit.Assert.assertEquals;
 public class WadbceFileObserverTest {
 
 
-    private static final String PATH = Environment.getExternalStorageDirectory()
+    private final String PATH = Environment.getExternalStorageDirectory()
             + "/WhatsApp/Databases/";
-
-    private final WadbceFileObserver testObeject = new WadbceFileObserver();
 
     @Test
     public void removesFileWhenAlreadyOnDatabaseFolder() throws Exception {
+
         final File testFile = new File(PATH + "test.txt");
         testFile.mkdirs();
+
+        new WadbceFileObserver();
 
         assertEquals(0, testFile.getParentFile().list().length);
     }
 
     @Test
     public void removesFileWhenAddedToDatabaseFolder() throws Exception {
-        final File testFile1 = new File(PATH + "test1.txt");
-        testFile1.mkdirs();
+        //FileObserver only monitors existing directories
+        final File testFile = new File(PATH);
+        testFile.mkdirs();
 
-        testObeject.startWatching();
+        final File testFile1 = new File(PATH + "test1.txt");
+        testFile1.mkdir();
+
+        new WadbceFileObserver().startWatching();
 
         assertEquals(0, testFile1.getParentFile().list().length);
     }
