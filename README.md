@@ -10,7 +10,7 @@ WhatsApp makes a daily encrypted copy of you chat history and stores it on your 
 
 ### It is encrypted, why should I care?
 
-The algorithm WhatsApp used to generate the encryption key is known to be broken([md5](http://en.wikipedia.org/wiki/MD5)) and shouldn't be used. To proof the point, [this guy and his buddies](http://bas.bosschert.nl/steal-whatsapp-update/) bruted forced the key and made it public.
+The algorithm WhatsApp used to encrypt the copy of the databases is known to be broken([md5](http://en.wikipedia.org/wiki/MD5)) and shouldn't be used. To prove the point, [this guy and his buddies](http://bas.bosschert.nl/steal-whatsapp-update/) created a decryptor for crypt5 databases.
 
 ###So, how does WADBCE help me?
 
