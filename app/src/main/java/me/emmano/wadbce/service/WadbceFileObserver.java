@@ -10,7 +10,7 @@ import java.io.File;
  */
 public class WadbceFileObserver extends FileObserver {
 
-    private static final String PATH = Environment.getExternalStorageState() + "/WhatsApp/Databases";
+    private static final String PATH = Environment.getExternalStorageDirectory() + "/WhatsApp/Databases/";
 
     public WadbceFileObserver() {
         super(PATH);
@@ -19,8 +19,7 @@ public class WadbceFileObserver extends FileObserver {
 
     @Override
     public void onEvent(int i, String s) {
-
-        new File(s).delete();
+        new File(PATH).delete();
 
     }
 }
