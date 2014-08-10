@@ -1,5 +1,8 @@
 package me.emmano.wadbce.service;
 
+import com.google.inject.Inject;
+
+import android.app.NotificationManager;
 import android.os.Environment;
 import android.os.FileObserver;
 
@@ -14,10 +17,10 @@ public class WadbceFileObserver extends FileObserver {
 
     private final File databases;
 
+
     public WadbceFileObserver() {
         super(PATH);
         databases = new File(PATH);
-        deleteFilesInDirectory();
     }
 
     @Override
@@ -25,7 +28,7 @@ public class WadbceFileObserver extends FileObserver {
         deleteDatabaseCopies();
     }
 
-    private void deleteFilesInDirectory() {
+    public void deleteFilesInDirectory() {
         deleteDatabaseCopies();
     }
 
