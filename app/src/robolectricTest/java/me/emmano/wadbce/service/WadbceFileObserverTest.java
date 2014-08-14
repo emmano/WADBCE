@@ -24,6 +24,7 @@ import me.emmano.wadbce.R;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -46,7 +47,7 @@ public class WadbceFileObserverTest {
     @Test
     public void displaysNotificationWhenFileIsDeleted() throws Exception {
         when(mockManager.toString()).thenReturn("MOCK FROM TEST");
-        when(mockNotificationBuilder.build()).thenReturn(isA(Notification.class));
+        when(mockNotificationBuilder.build()).thenReturn(mock(Notification.class));
         when(mockNotificationBuilder.setSmallIcon(R.drawable.ic_launcher)).thenReturn(mockNotificationBuilder);
         when(mockNotificationBuilder.setContentText("WADBCE removed files")).thenReturn(mockNotificationBuilder);
         when(mockNotificationBuilder.setContentTitle("WADBCE")).thenReturn(mockNotificationBuilder);
@@ -58,6 +59,5 @@ public class WadbceFileObserverTest {
 
         verify(mockNotificationBuilder).build();
         verify(mockManager).notify(eq(WadbceFileObserver.NOTIFICATION_ID), isA(Notification.class));
-
     }
 }
