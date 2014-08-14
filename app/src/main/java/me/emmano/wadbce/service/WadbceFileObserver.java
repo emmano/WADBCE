@@ -48,17 +48,10 @@ public class WadbceFileObserver extends FileObserver {
         }
     }
 
-    public void deleteFilesInDirectory() {
-        if (databases.list().length != 0) {
-            deleteDatabaseCopies();
-        }
-    }
-
-    private void deleteDatabaseCopies() {
-        if (databases.isDirectory()) {
-            String[] children = databases.list();
-            for (int j = 0; j < children.length; j++) {
-                new File(databases, children[j]).delete();
+    public void deleteDatabaseCopies() {
+        if (databases.isDirectory() && databases.list().length != 0) {
+            for (String s : databases.list()) {
+                new File(databases, s).delete();
             }
             notificationBuilder
                     .setSmallIcon(R.drawable.ic_launcher)

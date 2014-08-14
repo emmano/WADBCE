@@ -55,7 +55,7 @@ public class WadbceFileObserverTest {
         final File testFile = new File(PATH + "test1.txt");
         testFile.mkdirs();
 
-        testObject.deleteFilesInDirectory();
+        testObject.deleteDatabaseCopies();
 
         verify(mockNotificationBuilder).build();
         verify(mockManager).notify(eq(WadbceFileObserver.NOTIFICATION_ID), isA(Notification.class));
