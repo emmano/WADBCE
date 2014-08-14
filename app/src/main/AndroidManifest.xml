@@ -3,6 +3,7 @@
     package="me.emmano.wadbce" >
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".MyApplication"
@@ -20,6 +21,11 @@
             </intent-filter>
         </activity>
         <service android:name=".service.FileWatcherService"/>
+        <receiver android:name=".receiver.WadbceBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
