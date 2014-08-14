@@ -23,7 +23,7 @@ public class FileWatcherService extends RoboService {
     @Override
     public void onCreate() {
         super.onCreate();
-        fileObserver.deleteFilesInDirectory();
+        fileObserver.deleteDatabaseCopies();
         fileObserver.startWatching();
     }
 
