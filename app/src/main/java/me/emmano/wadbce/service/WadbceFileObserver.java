@@ -54,7 +54,7 @@ public class WadbceFileObserver extends FileObserver {
                 new File(databases, s).delete();
             }
             notificationBuilder
-                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setSmallIcon(R.drawable.wadbce_icon)
                     .setContentText("WADBCE removed files")
                     .setContentTitle("WADBCE");
             final Notification notification = notificationBuilder.build();
