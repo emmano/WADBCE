@@ -12,6 +12,7 @@ import android.support.v4.app.NotificationCompat;
 import java.io.File;
 
 import me.emmano.wadbce.R;
+import me.emmano.wadbce.notification.NotificationDispatcher;
 
 /**
  * Created by emmanuelortiguela on 8/7/14.
@@ -26,7 +27,7 @@ public class WadbceFileObserver extends FileObserver {
     private final File databases;
 
     @Inject
-    private Context context;
+    private NotificationDispatcher notificationDispatcher;
 
     @Inject
     private NotificationManager manager;
@@ -36,6 +37,7 @@ public class WadbceFileObserver extends FileObserver {
 
     public WadbceFileObserver() {
         super(PATH);
+        //TODO Make this class more testable.
         databases = new File(PATH);
     }
 
@@ -53,13 +55,7 @@ public class WadbceFileObserver extends FileObserver {
             for (String s : databases.list()) {
                 new File(databases, s).delete();
             }
-            notificationBuilder
-                    .setSmallIcon(R.drawable.ic_launcher)
-                    .setContentText("WADBCE removed files")
-                    .setContentTitle("WADBCE");
-            final Notification notification = notificationBuilder.build();
-
-            manager.notify(NOTIFICATION_ID, notification);
+            notificationDispatcher.dispatch(R.string.removed_databases_text);
         }
 
     }

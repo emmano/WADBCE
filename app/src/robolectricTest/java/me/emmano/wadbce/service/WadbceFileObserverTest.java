@@ -20,6 +20,7 @@ import android.support.v4.app.NotificationCompat;
 import java.io.File;
 
 import me.emmano.wadbce.R;
+import me.emmano.wadbce.notification.NotificationDispatcher;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.eq;
@@ -33,9 +34,6 @@ import static org.mockito.Mockito.when;
 public class WadbceFileObserverTest {
 
     @Mock
-    NotificationCompat.Builder mockNotificationBuilder;
-
-    @Mock
     NotificationManager mockManager;
 
     private final String PATH = Environment.getExternalStorageDirectory()
@@ -44,20 +42,20 @@ public class WadbceFileObserverTest {
     @Inject
     private WadbceFileObserver testObject;
 
+    @Mock
+    private NotificationDispatcher notificationDispatcher;
+
     @Test
     public void displaysNotificationWhenFileIsDeleted() throws Exception {
-        when(mockManager.toString()).thenReturn("MOCK FROM TEST");
-        when(mockNotificationBuilder.build()).thenReturn(mock(Notification.class));
-        when(mockNotificationBuilder.setSmallIcon(R.drawable.ic_launcher)).thenReturn(mockNotificationBuilder);
-        when(mockNotificationBuilder.setContentText("WADBCE removed files")).thenReturn(mockNotificationBuilder);
-        when(mockNotificationBuilder.setContentTitle("WADBCE")).thenReturn(mockNotificationBuilder);
-
         final File testFile = new File(PATH + "test1.txt");
         testFile.mkdirs();
 
         testObject.deleteDatabaseCopies();
 
-        verify(mockNotificationBuilder).build();
-        verify(mockManager).notify(eq(WadbceFileObserver.NOTIFICATION_ID), isA(Notification.class));
+        verify(notificationDispatcher).dispatch(R.string.removed_databases_text);
+
+        assertEquals(0,testFile.getParentFile().list().length);
+
     }
+
 }
