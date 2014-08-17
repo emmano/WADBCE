@@ -53,5 +53,9 @@ public class WadbceFileObserverTest {
         testObject.deleteDatabaseCopies();
 
         verify(notificationDispatcher).dispatch(R.string.removed_databases_text);
+
+        assertEquals(0,testFile.getParentFile().list().length);
+
     }
+
 }

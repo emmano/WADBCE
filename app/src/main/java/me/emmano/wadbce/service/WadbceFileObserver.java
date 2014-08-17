@@ -37,6 +37,7 @@ public class WadbceFileObserver extends FileObserver {
 
     public WadbceFileObserver() {
         super(PATH);
+        //TODO Make this class more testable.
         databases = new File(PATH);
     }
 
